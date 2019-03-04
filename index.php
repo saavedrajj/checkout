@@ -9,9 +9,9 @@
 
 </head>
 <body>
-
+<?php include "includes/navbar.php"; ?>
 	<div class="container">
-		<h1>Checkouts</h1>
+		<h1>Home</h1>
 		
 		<h2>PayPal</h2>
 		<ul>
@@ -20,8 +20,8 @@
 		</ul>
 		<h2>Braintree</h2>
 		<ul>
-			<li><a href="braintree/drop-in/" target="_blank">Drop-in UI</a></li>
-			<li><a href="braintree/hosted-fields/" target="_blank">Hosted fields</a></li>			
+			<li><a href="<?php echo $baseUrl;?>braintree/drop-in/" target="_blank">Drop-in UI</a></li>
+			<li><a href="<?php echo $baseUrl;?>braintree/hosted-fields/" target="_blank">Hosted fields</a></li>			
 		</ul>
 		<h2>Stripe</h2>
 		<ul>

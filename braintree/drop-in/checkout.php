@@ -1,0 +1,37 @@
+<?php
+
+
+ require_once("../../includes/braintree-credentials.php");
+
+$amount = $_POST["amount"];
+$nonce = $_POST["payment_method_nonce"];
+
+
+echo "amount: " . $amount . "<br>";
+echo "nonce: " . $nonce . "<br>";
+
+
+
+
+$result = $gateway->transaction()->sale([
+    'amount' => $amount,
+    'paymentMethodNonce' => $nonce,
+    'options' => [
+        'submitForSettlement' => true
+    ]
+]);
+
+if ($result->success || !is_null($result->transaction)) {
+    $transaction = $result->transaction;
+    header("Location: " . $baseUrl . "receipt.php?id=" . $transaction->id);
+} else {
+    $errorString = "";
+
+    foreach($result->errors->deepAll() as $error) {
+        $errorString .= 'Error: ' . $error->code . ": " . $error->message . "\n";
+    }
+
+    $_SESSION["errors"] = $errorString;
+    header("Location: " . $baseUrl . "index.php");
+}
+?>
