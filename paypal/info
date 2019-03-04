@@ -10,20 +10,4 @@ saavedrajj_uk_personal@gmail.com
 saavedrajj_uk_business@gmail.com
 
 
-Hi Chandana
-
-Thanks for contacting Brightcove support
-
-The paramaters you have sent us were valid to our deprecated Smart Player
-
-The integration of Omniture within the Brightcove player it's only possible with an open source plugin https://github.com/brightcove/videojs-omniture 
-
-Unfortunately due to the nature of the integration, it does require development experience and as it's open source, it's outside of the scope of what Brightcove Support can configure
-
-There is also a documentation on how to implement it, which can be found here:
-https://support.brightcove.com/brightcove-open-source-projects#bc-ipnav-3 
-https://github.com/BrightcoveOS/videojs-omniture 
-https://github.com/BrightcoveOS/videojs-omniture/blob/master/Adobe%20Analytics%20(Omniture)%20Plugin%20Documentation%20v3.pdf 
-
-Please let me know if there is something else I can help you with.
-
+https://developer.paypal.com/docs/checkout/integrate/
