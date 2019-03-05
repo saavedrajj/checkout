@@ -17,12 +17,31 @@
     <form method="post" id="payment-form" action="<?php echo $baseUrl;?>checkout.php">
 
 <!--
-      <input id="amount" name="amount" type="tel" min="1" placeholder="Amount" value="10">
+      <div class="form-group">
+        <label for="amount">Amount</label>
+        <input type="number" step="0.01" class="form-control" id="amount" name="amount" aria-describedby="amountHelp" placeholder="0.00">
+        <small id="amountHelp" class="form-text text-muted">Type the amount in £</small>
+      </div>
+
+
+
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">£</span>
+        </div>
+        <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+      </div>
     -->
+
     <div class="form-group">
       <label for="amount">Amount</label>
-      <input type="number" step="0.01" class="form-control" id="amount" name="amount" aria-describedby="amountHelp" placeholder="0.00">
-      <small id="amountHelp" class="form-text text-muted">Type the amount in £</small>
+
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">£</span>
+        </div>
+        <input type="number" step="0.01" class="form-control" id="amount" name="amount" placeholder="0.00" aria-label="0.00" aria-describedby="basic-addon1">
+      </div>
     </div>
 
     <div id="dropin-container"></div>
@@ -39,12 +58,14 @@
   var client_token = "<?php echo($gateway->ClientToken()->generate()); ?>";
   braintree.dropin.create({
     authorization: client_token,
-    selector: '#dropin-container',
+    selector: '#dropin-container'
+    /*,
     paypal: {
       flow: 'checkout',
       amount: '10.00',
       currency: 'GBP'
-    }
+    }*/
+
   }, function (createErr, instance) {
     if (createErr) {
       console.log('Create Error', createErr);
