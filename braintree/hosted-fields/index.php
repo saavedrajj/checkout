@@ -41,6 +41,8 @@
       <input class="btn btn-secondary btn-lg btn-block" type="submit" value="Submit payment" disabled />
 
     </form>
+  <div id="erroMessage"></div>
+
   </div>
   <script src="https://js.braintreegateway.com/web/3.42.0/js/client.min.js"></script>
   <script src="https://js.braintreegateway.com/web/3.42.0/js/hosted-fields.min.js"></script>
@@ -55,10 +57,6 @@
         console.error(clientErr);
         return;
       }
-
-        // This example shows Hosted Fields, but you can also use this
-        // client instance to create additional components here, such as
-        // PayPal or Data Collector.
 
         braintree.hostedFields.create({
           client: clientInstance,
@@ -90,6 +88,7 @@
         }, function (hostedFieldsErr, hostedFieldsInstance) {
           if (hostedFieldsErr) {
             console.error(hostedFieldsErr);
+            document.querySelector('#errorMessage').value = hostedFieldsErr;
             return;
           }
 
@@ -104,10 +103,7 @@
                 return;
               }
 
-              // If this was a real integration, this is where you would
-              // send the nonce to your server.
-              //console.log('Got a nonce: ' + payload.nonce);
-              document.querySelector('#nonce').value = payload.nonce;
+             document.querySelector('#nonce').value = payload.nonce;
               form.submit();
             });
           }, false);

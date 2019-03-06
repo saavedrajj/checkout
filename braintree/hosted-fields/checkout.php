@@ -3,8 +3,8 @@
 $amount = $_POST["amount"];
 $nonce = $_POST["payment_method_nonce"];
 $cardholderName = $_POST["cardholder-name"];
-echo "amount: " . $amount . "<br>";
-echo "nonce: " . $nonce . "<br>";
+//echo "amount: " . $amount . "<br>";
+//echo "nonce: " . $nonce . "<br>";
 
 $result = $gateway->transaction()->sale([
 	'amount' => $amount,
