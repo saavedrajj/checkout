@@ -8,6 +8,51 @@
  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> 
 </head>
+<style>
+  /* Uses Bootstrap stylesheets for styling, see linked CSS*/
+body {
+  background-color: #fff;
+}
+
+.panel {
+  width: 80%;
+  margin: 2em auto;
+}
+
+.bootstrap-basic {
+  background: white;
+}
+
+.panel-body {
+  width: 90%;
+  margin: 2em auto;
+}
+
+.helper-text {
+  color: #8A6D3B;
+  font-size: 12px;
+  margin-top: 5px;
+  height: 12px;
+  display: block;
+}
+
+/* Braintree Hosted Fields styling classes*/
+.braintree-hosted-fields-focused { 
+  border: 1px solid #0275d8;
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+}
+
+.braintree-hosted-fields-focused.focused-invalid {
+  border: 1px solid #ebcccc;
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(100,100,0,.6);
+}
+
+@media (max-width: 670px) {
+  .btn {
+    white-space: normal;
+  }
+}
+</style>
 <body>
   <?php include "../../includes/navbar.php"; ?>
   <div class="container">
@@ -15,23 +60,6 @@
     <h2>Drop-In UI</h2>
     <?php //include "../includes/credit-cards.html"; ?>
     <form method="post" id="payment-form" action="<?php echo $baseUrl;?>checkout.php">
-
-<!--
-      <div class="form-group">
-        <label for="amount">Amount</label>
-        <input type="number" step="0.01" class="form-control" id="amount" name="amount" aria-describedby="amountHelp" placeholder="0.00">
-        <small id="amountHelp" class="form-text text-muted">Type the amount in £</small>
-      </div>
-
-
-
-      <div class="input-group mb-3">
-        <div class="input-group-prepend">
-          <span class="input-group-text" id="basic-addon1">£</span>
-        </div>
-        <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
-      </div>
-    -->
 
     <div class="form-group">
       <label for="amount">Amount</label>
