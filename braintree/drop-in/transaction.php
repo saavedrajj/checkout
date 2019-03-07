@@ -9,6 +9,7 @@
 <body>
 	<?php require_once("../../includes/braintree-credentials.php");?>
 	<body>
+		<?php include "../../includes/navbar.php"; ?>
 		<?php
 		if (isset($_GET["id"])) {
 			$transaction = $gateway->transaction()->find($_GET["id"]);

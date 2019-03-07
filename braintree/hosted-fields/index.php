@@ -7,8 +7,12 @@
   <script src="https://js.braintreegateway.com/web/dropin/1.16.0/js/dropin.min.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> 
+  <style>
+    .separator { height:15px; }
+  </style>
 </head>
 <body>
+  <?php include "../../includes/navbar.php"; ?>
   <div class="container">
     <h1>Braintree</h1>
     <h2>Hosted Fields</h2>
@@ -38,6 +42,9 @@
       <div id="expiration-date" class="form-control"></div>
 
       <input id="nonce" name="payment_method_nonce" type="hidden" />
+      
+      <div class="separator"></div>
+
       <input class="btn btn-secondary btn-lg btn-block" type="submit" value="Submit payment" disabled />
 
     </form>

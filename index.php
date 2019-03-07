@@ -15,18 +15,18 @@
 		
 		<h2>PayPal</h2>
 		<ul>
-			<li><a href="#" target="_blank">Express Checkout</a></li>
-			<li><a href="#" target="_blank">Link</a></li>			
+			<li><a href="<?php echo $baseUrl;?>paypal/express-checkout/" target="_self">Express Checkout</a></li>
+			<li><a href="#" target="_self">Link</a></li>			
 		</ul>
 		<h2>Braintree</h2>
 		<ul>
-			<li><a href="<?php echo $baseUrl;?>braintree/drop-in/" target="_blank">Drop-in UI</a></li>
-			<li><a href="<?php echo $baseUrl;?>braintree/hosted-fields/" target="_blank">Hosted fields</a></li>			
+			<li><a href="<?php echo $baseUrl;?>braintree/drop-in/" target="_self">Drop-in UI</a></li>
+			<li><a href="<?php echo $baseUrl;?>braintree/hosted-fields/" target="_self">Hosted fields</a></li>			
 		</ul>
 		<h2>Stripe</h2>
 		<ul>
-			<li><a href="#" target="_blank">Link</a></li>
-			<li><a href="#" target="_blank">Link</a></li>			
+			<li><a href="#" target="_self">Link</a></li>
+			<li><a href="#" target="_self">Link</a></li>			
 		</ul>		
 		
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
