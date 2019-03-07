@@ -4,11 +4,13 @@
 <head>
   <meta charset="UTF-8">
   <title>Braintree - Hosted Fields</title>
-  <script src="https://js.braintreegateway.com/web/dropin/1.16.0/js/dropin.min.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" /> 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> 
+  <script src="https://js.braintreegateway.com/web/dropin/1.16.0/js/dropin.min.js"></script>
   <style>
     .separator { height:15px; }
+    .errorMessage {color:red;}
   </style>
 </head>
 <body>
@@ -33,22 +35,23 @@
       <input type="text" class="form-control" id="cardholder-name" name="cardholder-name" value="John Doe">
 
       <label for="card-number">Card Number</label>
-      <div id="card-number" class="form-control"></div>
+      <div id="card-number" class="form-control" size="16"></div>
 
       <label for="cvv">CVV</label>
-      <div id="cvv" class="form-control"></div>
+      <div id="cvv" class="form-control" size="4"></div>
 
       <label for="expiration-date">Expiration Date</label>
       <div id="expiration-date" class="form-control"></div>
 
       <input id="nonce" name="payment_method_nonce" type="hidden" />
-      
+     
       <div class="separator"></div>
+      <div id="errorMessage" class="errorMessage"></div>    
 
       <input class="btn btn-secondary btn-lg btn-block" type="submit" value="Submit payment" disabled />
 
     </form>
-  <div id="erroMessage"></div>
+
 
   </div>
   <script src="https://js.braintreegateway.com/web/3.42.0/js/client.min.js"></script>
@@ -81,7 +84,7 @@
           fields: {
             number: {
               selector: '#card-number',
-              placeholder: '4111 1111 1111 1111'
+              placeholder: '4111 1111 1111 1111',
             },      
             cvv: {
               selector: '#cvv',
@@ -95,7 +98,7 @@
         }, function (hostedFieldsErr, hostedFieldsInstance) {
           if (hostedFieldsErr) {
             console.error(hostedFieldsErr);
-            document.querySelector('#errorMessage').value = hostedFieldsErr;
+            //document.querySelector('#errorMessage').value = hostedFieldsErr;
             return;
           }
 
@@ -106,10 +109,11 @@
 
             hostedFieldsInstance.tokenize(function (tokenizeErr, payload) {
               if (tokenizeErr) {
-                console.error(tokenizeErr);
+                //console.error(tokenizeErr);
+                document.querySelector('#errorMessage').innerHTML = "<div class='alert alert-danger' role='alert'>" + tokenizeErr.message + "</div>";
                 return;
               }
-
+             document.querySelector('#errorMessage').innerHTML = "";
              document.querySelector('#nonce').value = payload.nonce;
               form.submit();
             });
