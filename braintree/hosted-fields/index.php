@@ -19,10 +19,8 @@
     <h1>Braintree</h1>
     <h2>Hosted Fields</h2>
     <form action="checkout.php" id="my-sample-form" method="post">
-
       <div class="form-group">
         <label for="amount">Amount</label>
-
         <div class="input-group mb-3">
           <div class="input-group-prepend">
             <span class="input-group-text" id="basic-addon1">£</span>
@@ -30,29 +28,19 @@
           <input type="number" step="0.01" class="form-control" id="amount" name="amount" placeholder="0.00" aria-label="0.00" aria-describedby="basic-addon1">
         </div>
       </div>
-
       <label for="card-number">Cardholder name</label>
       <input type="text" class="form-control" id="cardholder-name" name="cardholder-name" value="John Doe">
-
       <label for="card-number">Card Number</label>
       <div id="card-number" class="form-control" size="16"></div>
-
       <label for="cvv">CVV</label>
       <div id="cvv" class="form-control" size="4"></div>
-
       <label for="expiration-date">Expiration Date</label>
       <div id="expiration-date" class="form-control"></div>
-
       <input id="nonce" name="payment_method_nonce" type="hidden" />
-
       <div class="separator"></div>
       <div id="errorMessage" class="errorMessage"></div>    
-
       <input class="btn btn-secondary btn-lg btn-block" type="submit" value="Submit payment" disabled />
-
     </form>
-
-
   </div>
   <script src="https://js.braintreegateway.com/web/3.42.0/js/client.min.js"></script>
   <script src="https://js.braintreegateway.com/web/3.42.0/js/hosted-fields.min.js"></script>
@@ -67,7 +55,6 @@
         console.error(clientErr);
         return;
       }
-
       braintree.hostedFields.create({
         client: clientInstance,
         styles: {
@@ -101,12 +88,9 @@
             //document.querySelector('#errorMessage').value = hostedFieldsErr;
             return;
           }
-
           submit.removeAttribute('disabled');
-
           form.addEventListener('submit', function (event) {
             event.preventDefault();
-
             hostedFieldsInstance.tokenize(function (tokenizeErr, payload) {
               if (tokenizeErr) {
                 //console.error(tokenizeErr);    
@@ -116,7 +100,7 @@
                   errorMessage = "All fields are empty! Please fill out the form.";
                   break;
                   case 'HOSTED_FIELDS_FIELDS_INVALID':
-                  errorMessage = 'Some fields are invalid: ' + tokenizeErr.details.invalidFieldKeys;
+                  errorMessage = "Some fields are invalid: " + tokenizeErr.details.invalidFieldKeys + ".";
                   break;
                   case 'HOSTED_FIELDS_FAILED_TOKENIZATION':
                   errorMessage = "Tokenization failed server side. Is the card valid?";

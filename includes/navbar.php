@@ -27,8 +27,8 @@
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Stripe</a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Link 1</a>
-          <a class="dropdown-item" href="#">Link 2</a>
+          <a class="dropdown-item" href="<?php echo $baseUrl;?>stripe/checkout/">Checkout</a>
+          <a class="dropdown-item" href="<?php echo $baseUrl;?>stripe/card-payments/">Card Payments</a>
         </div>
       </li>      
     </ul>
