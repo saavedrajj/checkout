@@ -60,7 +60,7 @@ body {
     <h1>Braintree</h1>
     <h2>Drop-In UI</h2>
     <?php //include "../includes/credit-cards.html"; ?>
-    <form method="post" id="payment-form" action="<?php echo $baseUrl;?>checkout.php">
+    <form method="post" id="payment-form" action="checkout.php">
 
       <div class="form-group">
         <label for="amount">Amount</label>
