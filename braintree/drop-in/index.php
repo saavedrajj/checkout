@@ -9,7 +9,7 @@
  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> 
 </head>
 <style>
-  /* Uses Bootstrap stylesheets for styling, see linked CSS*/
+
 body {
   background-color: #fff;
 }
@@ -61,32 +61,28 @@ body {
     <?php //include "../includes/credit-cards.html"; ?>
     <form method="post" id="payment-form" action="<?php echo $baseUrl;?>checkout.php">
 
-    <div class="form-group">
-      <label for="amount">Amount</label>
+      <div class="form-group">
+        <label for="amount">Amount</label>
 
-      <div class="input-group mb-3">
-        <div class="input-group-prepend">
-          <span class="input-group-text" id="basic-addon1">£</span>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1">£</span>
+          </div>
+          <input type="number" step="0.01" class="form-control" id="amount" name="amount" placeholder="0.00" aria-label="0.00" aria-describedby="basic-addon1">
         </div>
-        <input type="number" step="0.01" class="form-control" id="amount" name="amount" placeholder="0.00" aria-label="0.00" aria-describedby="basic-addon1">
       </div>
-    </div>
 
-    <div id="dropin-container"></div>
-    <input id="nonce" name="payment_method_nonce" type="hidden" />
-   <!--
-      <button id="submit-button2">Request payment method</button>
-    -->
-    <button  id="submit-button" class="btn btn-secondary btn-lg btn-block">Submit payment</button>
-
-  </form>
-</div>
-<script>
-  var form = document.querySelector('#payment-form');
-  var client_token = "<?php echo($gateway->ClientToken()->generate()); ?>";
-  braintree.dropin.create({
-    authorization: client_token,
-    selector: '#dropin-container'
+      <div id="dropin-container"></div>
+      <input id="nonce" name="payment_method_nonce" type="hidden" />
+      <button  id="submit-button" class="btn btn-secondary btn-lg btn-block">Submit payment</button>
+    </form>
+  </div>
+  <script>
+    var form = document.querySelector('#payment-form');
+    var client_token = "<?php echo($gateway->ClientToken()->generate()); ?>";
+    braintree.dropin.create({
+      authorization: client_token,
+      selector: '#dropin-container'
     /*,
     paypal: {
       flow: 'checkout',

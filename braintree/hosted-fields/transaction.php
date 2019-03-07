@@ -37,17 +37,10 @@
 		}
 		?>
 		<div class="container">
-
-
 			<h1><?php echo($header)?></h1>
-
 			<p><?php echo($message)?></p>
-
 			<a class="btn btn-secondary btn-lg btn-block" href="index.php" role="button">Test another transaction</a>		
-
-
 			<h3>API Response</h3>
-
 			<table class="table">
 				<thead class="thead-dark">
 					<tr>
@@ -91,7 +84,6 @@
 					<tr>
 						<th scope="row">bin</th>
 						<td><?php echo($transaction->creditCardDetails->bin)?></td>
-
 					</tr>
 					<tr>
 						<th scope="row">last_4</th>
@@ -113,14 +105,11 @@
 						<th scope="row">customer_location</th>
 						<td><?php echo($transaction->creditCardDetails->customerLocation)?></td>
 					</tr>              
-
-
 					<thead class="thead-dark">
 						<tr>
 							<th scope="col" colspan=2>Customer details</th>
 						</tr>
 					</thead>
-
 					<tr>
 						<th scope="row">id</th>
 						<td><?php echo($transaction->customerDetails->id)?></td>
@@ -128,7 +117,6 @@
 					<tr>
 						<th scope="row">first_name</th>
 						<td><?php echo($transaction->customerDetails->firstName)?></td>
-
 					</tr>
 					<tr>
 						<th scope="row">last_name</th>
@@ -162,4 +150,3 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </body>
 </html>
-

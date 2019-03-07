@@ -7,16 +7,11 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 </head>
 <body>
-	
-
 	<?php require_once("../../includes/braintree-credentials.php");?>
-
 	<body>
-
 		<?php
 		if (isset($_GET["id"])) {
 			$transaction = $gateway->transaction()->find($_GET["id"]);
-
 			$transactionSuccessStatuses = [
 				Braintree\Transaction::AUTHORIZED,
 				Braintree\Transaction::AUTHORIZING,
@@ -26,7 +21,6 @@
 				Braintree\Transaction::SETTLEMENT_PENDING,
 				Braintree\Transaction::SUBMITTED_FOR_SETTLEMENT
 			];
-
 			if (in_array($transaction->status, $transactionSuccessStatuses)) {
 				$header = "Succesful payment!";
 				$message = "Your test transaction has been successfully processed. See the Braintree API response and try again.";
@@ -37,17 +31,10 @@
 		}
 		?>
 		<div class="container">
-
-
 			<h1><?php echo($header)?></h1>
-
 			<p><?php echo($message)?></p>
-
 			<a class="btn btn-secondary btn-lg btn-block" href="index.php" role="button">Test another transaction</a>		
-
-
 			<h3>API Response</h3>
-
 			<table class="table">
 				<thead class="thead-dark">
 					<tr>
